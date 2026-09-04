@@ -17,7 +17,7 @@ def calculate_total_length(arr1, arr2):
         val2 = min(arr1[i][1], arr2[j][1])
         if val1 < val2:
             result.append([val1, val2])
-        if arr1[i][1] >= arr2[j][1]:
+        if arr1[i][1] <= arr2[j][1]:
             i += 1
         else:
             j += 1
