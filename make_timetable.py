@@ -13,7 +13,7 @@ def make_timetable(meetings):
             end += 1
             number_of_rooms += 1
             continue
-        if meetings[start][0] <= meetings[start][1] < meetings[end][1]:
+        if meetings[start][0] <= meetings[end][0] < meetings[start][1]:
             number_of_rooms += 1
             end += 1
         else:
