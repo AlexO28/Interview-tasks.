@@ -19,7 +19,6 @@ def make_timetable(meetings):
         else:
             max_number_of_rooms = max(max_number_of_rooms, number_of_rooms)
             start += 1
-            end = start
-            number_of_rooms = 0
+            number_of_rooms = -= 1
     max_number_of_rooms = max(max_number_of_rooms, number_of_rooms)
     return max_number_of_rooms
