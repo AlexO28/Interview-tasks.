@@ -7,8 +7,8 @@
 # * возвращает сумму длин интервалов в result (в примере 4)
 # нужен алгоритм, который работает быстрее чем O(N * M)
 def calculate_total_length(arr1, arr2):
-    arr1.sort()
-    arr2.sort()
+    arr1 = bucket_sort_safe(arr1)
+    arr2 = bucket_sort_safe(arr2)
     result = []
     i = 0
     j = 0
@@ -22,3 +22,21 @@ def calculate_total_length(arr1, arr2):
         else:
             j += 1
     return sum([elem[1] - elem[0] for elem in result])
+
+
+def bucket_sort_safe(arr):
+    if len(arr) <= 1:
+        return arr
+    buckets = [[] for _ in range(len(arr))]
+    for num in arr:
+        index = int(num * len(arr))
+        if index >= len(arr):
+            index = len(arr) - 1            
+        buckets[index].append(num)
+    sorted_arr = []
+    for bucket in buckets:
+        bucket.sort() 
+        sorted_arr.extend(bucket)
+    return sorted_arr
+
+    return sorted_arr
